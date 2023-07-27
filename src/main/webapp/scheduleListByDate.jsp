@@ -37,7 +37,7 @@
 	
 	// 일별 스케줄 리스트
 	Class.forName("org.mariadb.jdbc.Driver");
-	java.sql.Connection conn  = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/diary","root","java1234");
+	java.sql.Connection conn  = DriverManager.getConnection("jdbc:mariadb://3.38.38.146/diary","root","java1234");
 	
 	String sql= "select *from schedule where schedule_date = ? order by schedule_time asc";
 	PreparedStatement stmt = conn.prepareStatement(sql);
@@ -93,7 +93,7 @@
 			<tr>
 				<th class="table-info">schedule_color</th>
 				<td>
-					<input type="color" name="scheduleColor" value="#00000">
+					<input type="color" name="scheduleColor">
 				</td>
 			</tr>
 			<tr>

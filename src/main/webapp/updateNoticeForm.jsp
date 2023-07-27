@@ -13,7 +13,7 @@
 	int noticeNo = Integer.parseInt(request.getParameter("noticeNo"));
 
 	Class.forName("org.mariadb.jdbc.Driver");
-	java.sql.Connection conn  = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/diary","root","java1234");
+	java.sql.Connection conn  = DriverManager.getConnection("jdbc:mariadb://3.38.38.146/diary","root","java1234");
 	
 	String sq1 = "select notice_no, notice_title, notice_content, notice_writer, createdate, updatedate from notice where notice_no = ?";
 	PreparedStatement stmt = conn.prepareStatement(sq1); 

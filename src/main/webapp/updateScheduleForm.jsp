@@ -15,7 +15,7 @@
 	
 			
 	Class.forName("org.mariadb.jdbc.Driver");
-	java.sql.Connection conn  = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/diary","root","java1234");
+	java.sql.Connection conn  = DriverManager.getConnection("jdbc:mariadb://3.38.38.146/diary","root","java1234");
 	
 	//쿼리실행문 및 파라미터값 지정
 	String sql= "select schedule_no, schedule_date, schedule_time, schedule_memo, schedule_color, createdate, updatedate from schedule where schedule_no=?";

@@ -23,7 +23,7 @@
 	//delete from notice where notice_no=? and notice_pw=?
 	
 	Class.forName("org.mariadb.jdbc.Driver");
-	java.sql.Connection conn  = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/diary","root","java1234");
+	java.sql.Connection conn  = DriverManager.getConnection("jdbc:mariadb://3.38.38.146/diary","root","java1234");
 	
 	String sq1 = "delete from notice where notice_no=? and notice_pw=?";
 	PreparedStatement stmt = conn.prepareStatement(sq1); 

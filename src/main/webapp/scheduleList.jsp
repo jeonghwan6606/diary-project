@@ -58,7 +58,7 @@
 	//db data를 가져오는 알고리즘
 	
 	Class.forName("org.mariadb.jdbc.Driver");
-	Connection conn  = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/diary","root","java1234");
+	Connection conn  = DriverManager.getConnection("jdbc:mariadb://3.38.38.146/diary","root","java1234");
 	/*
 		select schedule_no scheduleNo, day(schedule_date) scheduleDate, substr(schedule_memo,1,5)scheduleMemo, schedule_color scheduleColor
 		from schedule
@@ -114,9 +114,13 @@
 			<a class="navbar-brand" href="./scheduleList.jsp">일정 리스트</a>
 		</div>
 	</nav>
-	
-	<h1><%=targetYear%>년 <%=targetMonth+1%>월</h1> <!-- 보여줄때만 month +1 로 보여주자 -->
 
+	<h1>
+	<a class="btn btn-success" role="button" href="./scheduleList.jsp?targetYear=<%=targetYear%>&targetMonth=<%=targetMonth-1%>">이전달</a>
+		<%=targetYear%>년 <%=targetMonth+1%>월<!-- 보여줄때만 month +1 로 보여주자 -->
+	<a  class="btn btn-success" role="button" href="./scheduleList.jsp?targetYear=<%=targetYear%>&targetMonth=<%=targetMonth+1%>">다음달</a>
+	</h1>
+	
 	<table class="table" >
 		<thead class="table-success">
 			<tr>
@@ -178,10 +182,6 @@
 				}
 			%>
 		</tr>
-	</table>
-	<div>
-		<a class="btn btn-success" role="button" href="./scheduleList.jsp?targetYear=<%=targetYear%>&targetMonth=<%=targetMonth-1%>">이전달</a>
-		<a  class="btn btn-success" role="button" href="./scheduleList.jsp?targetYear=<%=targetYear%>&targetMonth=<%=targetMonth+1%>">다음달</a>
-	</div>		
+	</table>	
 </body>
 </html>

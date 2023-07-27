@@ -14,7 +14,7 @@
 		
 			
 		Class.forName("org.mariadb.jdbc.Driver");
-		java.sql.Connection conn  = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/diary","root","java1234");
+		java.sql.Connection conn  = DriverManager.getConnection("jdbc:mariadb://3.38.38.146/diary","root","java1234");
 		
 		// 최근 공지 5개	
 		PreparedStatement stmt = conn.prepareStatement("select notice_no, notice_title, createdate from notice order by createdate desc limit 0,5"); 
@@ -34,7 +34,7 @@
 		
 		// 오늘 일정
 		//
-		String sql2= "SELECT schedule_no, schedule_date, schedule_time, substring(schedule_memo, 1,10) memo FROM SCHEDULE WHERE schedule_date = CURDATE() ORDER BY schedule_time ASC";
+		String sql2= "SELECT schedule_no, schedule_date, schedule_time, substring(schedule_memo, 1,10) memo,schedule_color FROM schedule WHERE schedule_date = CURDATE() ORDER BY schedule_time ASC";
 		PreparedStatement stmt2 = conn.prepareStatement(sql2);
 		System.out.println(stmt2+"<--stmt2");
 		
@@ -47,7 +47,7 @@
 		s.scheduleNo = rs2.getInt("schedule_no");
 		s.scheduleTime = rs2.getString("schedule_time");
 		s.scheduleDate = rs2.getString("schedule_date"); // day만 가져온 scheduleDate
-		s.scheduleMemo = rs2.getString("schedule_memo"); // 전체메모가 아닌 5글자만
+		s.scheduleMemo = rs2.getString("memo"); // 전체메모가 아닌 5글자만
 		s.scheduleColor = rs2.getString("schedule_color");
 		scheduleList.add(s);
 		}
@@ -111,9 +111,7 @@
 					<%=s.scheduleTime%>
 				</td>
 				<td>
-					<a class="btn btn-success" role="button" href="./scheduleOne.jsp?scheduleNo=<%=s.scheduleNo%>">
-						<%=s.scheduleMemo%>
-					</a>	
+					<%=s.scheduleMemo%>
 				</td>
 			</tr>
 		<%

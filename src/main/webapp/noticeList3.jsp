@@ -37,7 +37,7 @@
 		// limit  0,5
 		
 		Class.forName("org.mariadb.jdbc.Driver");
-		java.sql.Connection conn  = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/diary","root","java1234");
+		java.sql.Connection conn  = DriverManager.getConnection("jdbc:mariadb://3.38.38.146/diary","root","java1234");
 		PreparedStatement stmt = conn.prepareStatement("select notice_no noticeNo, notice_title noticeTitle, createdate from notice order by createdate desc limit ?,?");
 		
 		stmt.setInt(1,startRow);

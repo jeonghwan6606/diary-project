@@ -15,7 +15,7 @@
 	//2) mariadb에 로그인 후 접속정보 반환받아야 한다
 	Connection conn = null; // 접속정보 타입
 	conn = DriverManager.getConnection(
-			"jdbc:mariadb://127.0.0.1:3306/diary","root","java1234");
+			"jdbc:mariadb://3.38.38.146/diary","root","java1234");
 	System.out.println("접속성공"+conn); //접속성공org.mariadb.jdbc.Connection@2f01304e(주소 16진값)
 
 	//3) 쿼리생성 (1. 쿼리의 문자열 입력 /con이 statement stmt를 쿼리형태로 실행해준다(?))

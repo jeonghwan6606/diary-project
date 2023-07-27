@@ -33,7 +33,7 @@
 	Class.forName("org.mariadb.jdbc.Driver");
 	System.out.println("드라이버 로딩 성공");
 		
-	Connection conn = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/diary","root","java1234");
+	Connection conn = DriverManager.getConnection("jdbc:mariadb://3.38.38.146/diary","root","java1234");
 	System.out.println("접속성공"+conn); //접속성공org.mariadb.jdbc.Connection@2f01304e(주소 16진값)
 
 	

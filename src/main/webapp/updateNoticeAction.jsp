@@ -61,7 +61,7 @@
 	Class.forName("org.mariadb.jdbc.Driver");
 	System.out.println("드라이버 로딩 성공");
 	
-	java.sql.Connection conn  = DriverManager.getConnection("jdbc:mariadb://127.0.0.1:3306/diary","root","java1234");	
+	java.sql.Connection conn  = DriverManager.getConnection("jdbc:mariadb://3.38.38.146/diary","root","java1234");	
 	System.out.println("접속성공"+conn); //접속성공org.mariadb.jdbc.Connection@2f01304e(주소 16진값)\
 	
 	String sq1 = "UPDATE notice SET notice_title = ?, notice_content = ?, updatedate=now() where notice_no=? and notice_pw=?";
